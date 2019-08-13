@@ -1,0 +1,44 @@
+<div class="empty" *ngIf="availableProfiles.length === 0">
+    <h4>There're no profiles to see.</h4>
+    <a class="btn btn-dark" routerLink="/manage-profile">
+       <i class="material-icons">add_circle_outline</i> Add first
+    </a>
+</div>
+
+<div class="card-columns">
+    <div class="card" *ngFor="let profile of availableProfiles" [ngClass]="{'disabled' : !profile.getProfileStatus()}">
+        <div class="card-header">
+            <h4 class="card-title">{{profile.name | uppercase}} {{profile.surname | uppercase}}</h4>
+        </div>
+        <img class="card-img" src="../../../assets/placeholder.png" alt="placeholder-photo">
+        <div class="card-body">
+            <div class="status">
+                <mat-slide-toggle (change)="manageProfile(profile)" [checked]="profile.getProfileStatus()">{{profile.getProfileStatus() ? 'Deactivate' : 'Activate'}}</mat-slide-toggle>
+            </div>
+            <span class="status-info">{{profile.getProfileStatus() ? 'ACTIVE' : 'DISABLED'}}</span>
+            <div class="profile-info" [ngClass]="{'disabled': !profile.getProfileStatus()}">
+                <span class="label">Born: <span class="info">{{profile.birthDate}}</span></span>
+                <span class="label">Gender: <span class="info">{{profile.gender | lowercase}}</span></span>
+                <span class="label">Phone: <span class="info">{{profile.phone}}</span></span>
+                <span class="label">Email: <span class="info">{{profile.email}}</span></span>
+                <span class="label">Nationalities: <span class="info" *ngFor="let nationalityId of profile.nationalities">{{getNationalitiesById(nationalityId)}} </span></span>
+                <app-rating [profile]="profile" [disabled]="!profile.getProfileStatus()"></app-rating>
+            </div>
+            <div class="actions-btns">
+                <a (click)="moveToEditProfile(profile.getId(), profile.getProfileStatus())" [ngClass]="{'disabled': !profile.getProfileStatus()}">
+                    <i class="material-icons">edit</i><span>EDIT</span>
+                </a>
+                
+                <a (click)="removeProfile(profile.getId())">
+                    <i class="material-icons">delete</i><span>REMOVE</span>
+                </a>
+            </div>
+        </div>
+        <div class="card-footer">
+             <small class="text-muted">Created: {{profile.getCreationDate() | date:'short'}} </small>
+            <small class="text-muted">Last update: {{profile.getUpdateDate() | date:'short'}}</small>
+        </div>
+    </div>
+</div>
+
+

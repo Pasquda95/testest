@@ -1,0 +1,31 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    a {
+        cursor: pointer;
+        .material-icons, span {
+            vertical-align: middle;
+        }
+        span {
+            margin-left: 0.3rem;
+        }
+        &.btn.btn-dark {
+            display: block;
+            width: 10rem;
+            margin: 0 auto;
+            color : $primary-grey;
+            &:hover {
+                color: $light-grey;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.card {
+    border-color: none;
+    .card-header {
+        text-align: center;
+    }
+    .card-body {
+        margin: 0 auto;
+        mat-radio-group {
+            align-self: center;
+        }
+    }
+}

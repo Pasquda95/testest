@@ -1,0 +1,3 @@
+<div class="rating-container">
+    <i class="material-icons" *ngFor="let ratingItem of ratingArray" (click)="setRating(ratingItem)">{{ratingItem<=rating ? 'star' : 'star_border'}}</i>
+</div>

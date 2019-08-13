@@ -1,0 +1,83 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+@import 'variables';
+
+.empty {
+  h4 {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
+
+.card-columns {
+    padding: 3rem;
+    @include media-breakpoint-only(sm) {
+      column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 4;
+    }
+
+  .card {
+    &.disabled {
+      .card-body {
+        .status-info{
+            color: $primary-red;
+          }
+        }
+      }
+    }
+    .card-header>.card-title {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .card-body {
+      .status {
+        position: relative;
+        mat-slide-toggle {
+          position: absolute;
+          top: 0;
+          right: 0
+        }
+      }
+      .status-info {
+        display: block;
+        text-align: center;
+        color: $primary-green;
+        margin-top: 1.5rem;
+      }
+      .profile-info {
+        &.disabled {
+          opacity: 0.5;
+        }
+        span {
+          text-align: left;
+          &.label {
+              display: block;
+              font-weight: bold;
+          }
+          &.info {
+              font-weight: normal;
+          }
+        }
+      }
+      .actions-btns {
+        margin-top: 0.5rem;
+        text-align: center;
+        a {
+          &.disabled {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    small {
+      &.text-muted {
+        display: block;
+        text-align: center;
+      }
+    }
+}
