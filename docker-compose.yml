@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  backend:
+    build: 
+      context: ./expapp-backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./expapp-backend:/usr/src/app
+    ports: 
+      - 5001:80
+  
+  frontend:
+    build: 
+      context: ./expapp-frontend
+      dockerfile: Dockerfile
+    # volumes: 
+    #   - ./expapp-frontend:/app
+    ports: 
+      - 5000:4200
