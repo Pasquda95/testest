@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   // URL of development API
-  apiUrl: 'http://0.0.0.0:80'
+  apiUrl: 'http://backend:80'
 };
 
 /*
