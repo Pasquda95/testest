@@ -13,6 +13,7 @@ class Profile(db.Model):
     email = db.Column(db.String(30))
     creationTime = db.Column(db.DateTime)
     updateTime = db.Column(db.DateTime)
+    activateStatus = db.Column(db.Boolean)
 
     def __init__(self, name, surname, gender, birthDate, nationalities, phone, email):
         self.name = name
@@ -24,3 +25,4 @@ class Profile(db.Model):
         self.email = email
         self.creationTime = datetime.datetime.now()
         self.updateTime = datetime.datetime.now()
+        self.activateStatus = True

@@ -67,3 +67,10 @@ def delete_profile(id):
     db.session.delete(profile)
     db.session.commit()
     return profile_schema.jsonify(profile)
+
+@app.route('/profile/<id>/deactivate', methods=["PUT"])
+def deactivate_profile(id):
+    profile = Profile.query.get(id)
+    profile.activateStatus = False
+    db.session.commit()
+    return profile_schema.jsonify(profile)

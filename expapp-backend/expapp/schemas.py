@@ -4,5 +4,5 @@ from expapp import ma
 class ProfileSchema(ma.Schema):
     class Meta:
         fields = (
-            'id', 'name', 'surname', 'gender', 'birthDate', 'nationalities', 'phone', 'email', 'creationTime', 'updateTime'
+            'id', 'name', 'surname', 'gender', 'birthDate', 'nationalities', 'phone', 'email', 'creationTime', 'updateTime', 'activateStatus'
             )
