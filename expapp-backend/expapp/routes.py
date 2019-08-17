@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import request, jsonify
 from expapp import app
 from expapp.models import Profile
@@ -29,13 +30,11 @@ def create_profile():
 @app.route('/profile/all', methods=["GET"])
 def get_all_profiles():
     all_profiles = Profile.query.all()
-    result = profiles_schema.dump(all_profiles)
-    return jsonify(result)
+    return jsonify(profiles_schema.dump(all_profiles))
 
 @app.route('/profile/<id>', methods=["GET"])
 def get_profile(id):
-    profile = Profile.query.get(id)
-    return profile_schema.jsonify(profile)
+    return profile_schema.jsonify(Profile.query.get(id))
 
 @app.route('/profile/<id>', methods=["PUT"])
 def update_profile(id):
@@ -56,6 +55,7 @@ def update_profile(id):
     profile.nationalities = nationalities
     profile.phone = phone
     profile.email = email
+    profile.updateTime = datetime.now()
 
     db.session.commit()
 
