@@ -9,11 +9,11 @@ URL | method | result
 --- | --- | ---
 /profile | POST | create profile, requires request body
 /profile/all | GET | get all profiles
-/profile/<id> | GET | get profile with given ID
-/profile/<id> | PUT | edit profile, requires request body
-/profile/<id> | DELETE | delete profile with given ID
-/profile/<id>/deactivate | PUT | deactivate profile with given ID
-/profile/<id>/activate | PUT | activate profile with given ID
+/profile/{id} | GET | get profile with given ID
+/profile/{id} | PUT | edit profile, requires request body
+/profile/{id} | DELETE | delete profile with given ID
+/profile/{id}/deactivate | PUT | deactivate profile with given ID
+/profile/{id}/activate | PUT | activate profile with given ID
 
 example request body (json):
 
