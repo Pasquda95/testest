@@ -74,3 +74,11 @@ def deactivate_profile(id):
     profile.activateStatus = False
     db.session.commit()
     return profile_schema.jsonify(profile)
+
+@app.route('/profile/<id>/activate', methods=["PUT"])
+def activate_profile(id):
+    profile = Profile.query.get(id)
+    profile.activateStatus = True
+    db.session.commit()
+    return profile_schema.jsonify(profile)
+
